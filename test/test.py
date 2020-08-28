@@ -14,8 +14,9 @@ cap = cv2.VideoCapture(0)
 current_postion = np.zeros((1, 4))
 points = {"start": None, "end": None}
 
-status = 0
+
 # 0 : wait / 1 : detect / 2: lost
+status = 0
 
 
 # frame count vars
@@ -51,6 +52,7 @@ def action2():
 
 
 def cal(start: list, end: list) -> int:
+
     start_x = start[0]
     start_y = start[1]
     end_x = end[0]
@@ -87,8 +89,8 @@ while cap.isOpened():
         print(f"{frame_count}  :  {faces}  :  {len(faces)} : {points}")
 
         if len(faces) == 0:
-            if status == "0":
-                continue
+            if status == 0:
+                pass
             elif status == 1:
                 status = 2
                 no_face_frame_count += 1
