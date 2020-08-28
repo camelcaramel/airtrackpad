@@ -1,4 +1,4 @@
-# magicairpad
+# airtrackpad
 
 토이 프로젝트 
 
