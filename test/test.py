@@ -39,13 +39,13 @@ def init_var() -> None:
 
 
 def action1() -> None:
-    """지정 동작 수행 스텁 1"""
+    """action stub 1"""
     init_var()
     print("action1 activated")
 
 
 def action2():
-    """지정 동작 수행 스텁 2"""
+    """action stub 2"""
     init_var()
     print("action2 activated")
 
