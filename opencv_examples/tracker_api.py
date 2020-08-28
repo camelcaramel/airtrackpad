@@ -1,6 +1,6 @@
 from cv2 import cv2
 
-file_path = "../src/highway.mp4"
+file_path = "src/highway.mp4"
 
 # 트랙커 객체 생성자 함수 리스트 ---①
 trackers = [cv2.TrackerBoosting_create,

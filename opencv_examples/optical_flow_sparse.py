@@ -1,7 +1,7 @@
 import numpy as np
 from cv2 import cv2
 
-file_path = '../src/walking.avi'
+file_path = 'src/walking.avi'
 
 cap = cv2.VideoCapture(file_path)
 fps = cap.get(cv2.CAP_PROP_FPS)  # 프레임 수 구하기

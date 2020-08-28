@@ -1,7 +1,7 @@
 from cv2 import cv2
 import numpy as np
 
-file_path = '../src/house.jpg'
+file_path = 'src/house.jpg'
 
 img = cv2.imread(file_path)
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)

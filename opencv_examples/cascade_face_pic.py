@@ -1,15 +1,16 @@
 import numpy as np
 from cv2 import cv2
 
-img_file_path = '../src/children.jpg'
+img_file_path = 'src/children.jpg'
 
 # 얼굴 검출을 위한 케스케이드 분류기 생성 --- ①
 face_cascade = cv2.CascadeClassifier(
-    './data/haarcascade_frontalface_default.xml')
+    'data/haarcascade_frontalface_default.xml')
 # 눈 검출을 위한 케스케이드 분류기 생성 ---②
-eye_cascade = cv2.CascadeClassifier('./data/haarcascade_eye.xml')
+eye_cascade = cv2.CascadeClassifier('data/haarcascade_eye.xml')
 # 검출할 이미지 읽고 그레이 스케일로 변환 ---③
 img = cv2.imread(img_file_path)
+print(img)
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 # 얼굴 검출 ---④
 faces = face_cascade.detectMultiScale(gray)
