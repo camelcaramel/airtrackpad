@@ -45,7 +45,7 @@ def action1() -> None:
     print("action1 activated")
 
 
-def action2():
+def action2() -> None:
     """action stub 2"""
     init_var()
     print("action2 activated")
@@ -58,8 +58,10 @@ def cal(start: list, end: list) -> int:
     end_x = end[0]
     end_y = end[1]
 
-    gradient = ((start_x)-(end_y))/((start_y)-(end_x))
+    gradient = ((start_y)-(end_y)) / ((start_x)-(end_x))
     length = math.sqrt((end_x-start_x)**2+(end_y-start_y)**2)
+
+    print(f"gradient : {gradient}")
 
     if length > 10:
         if gradient > 0 and gradient < 4:
