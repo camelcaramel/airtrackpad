@@ -102,7 +102,7 @@ def branch(start: list, end: list, img):
             if abs_gradient >= 1:
                 action1(img)
             else:
-                action2()
+                action2(img)
         elif vec[0] > 0 and vec[1] < 0:
             if abs_gradient >= 1:
                 action3(img)
