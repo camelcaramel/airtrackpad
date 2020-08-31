@@ -21,6 +21,7 @@ cap = cv2.VideoCapture(video_src)
 fps = cap.get(cv2.CAP_PROP_FPS)  # 프레임 수 구하기
 delay = int(1000/fps)
 win_name = 'Tracking APIs'
+
 while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
@@ -49,6 +50,7 @@ while cap.isOpened():
     if key == ord(' ') or (video_src != 0 and isFirst):
         isFirst = False
         roi = cv2.selectROI(win_name, frame, False)  # 초기 객체 위치 설정
+        print(roi)
         if roi[2] and roi[3]:         # 위치 설정 값 있는 경우
             tracker = trackers[trackerIdx]()  # 트랙커 객체 생성 ---⑤
             isInit = tracker.init(frame, roi)
