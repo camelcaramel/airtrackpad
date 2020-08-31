@@ -54,31 +54,39 @@ def init_var() -> None:
     print("initailize")
 
 
-def action1() -> None:
+def action1(img) -> None:
     """action stub 1"""
+    cv2.putText(img, "action1",
+                (100, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2, cv2.LINE_AA)
     init_var()
     print("action1 activated")
 
 
-def action2() -> None:
+def action2(img) -> None:
     """action stub 2"""
+    cv2.putText(img, "action2",
+                (100, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2, cv2.LINE_AA)
     init_var()
     print("action2 activated")
 
 
-def action3() -> None:
+def action3(img) -> None:
     """action stub 3"""
+    cv2.putText(img, "action3",
+                (100, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2, cv2.LINE_AA)
     init_var()
     print("action3 activated")
 
 
-def action4() -> None:
+def action4(img) -> None:
     """action stub 4"""
+    cv2.putText(img, "action4",
+                (100, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2, cv2.LINE_AA)
     init_var()
     print("action4 activated")
 
 
-def branch(start: list, end: list):
+def branch(start: list, end: list, img):
     print("on branch")
     start_x = start[0]
     start_y = start[1]
@@ -92,24 +100,24 @@ def branch(start: list, end: list):
     if length > length_th_value:
         if vec[0] > 0 and vec[1] > 0:
             if abs_gradient >= 1:
-                action1()
+                action1(img)
             else:
                 action2()
         elif vec[0] > 0 and vec[1] < 0:
             if abs_gradient >= 1:
-                action3()
+                action3(img)
             else:
-                action2()
+                action2(img)
         elif vec[0] < 0 and vec[1] > 0:
             if abs_gradient >= 1:
-                action3()
+                action3(img)
             else:
-                action4()
+                action4(img)
         else:
             if abs_gradient >= 1:
-                action1()
+                action1(img)
             else:
-                action4()
+                action4(img)
     else:
         init_var()
         print("too short")
@@ -121,9 +129,6 @@ while cap.isOpened():
     ret, frame = cap.read()
 
     img_draw = frame.copy()
-
-    cv2.putText(img_draw, "Press the Space to set ROI!!",
-                (100, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2, cv2.LINE_AA)
 
     if ret:
         if status == 0:
@@ -159,7 +164,7 @@ while cap.isOpened():
             else:
                 if lost_target_count > th_value and postions['start']:
                     postions['end'] = cur_position
-                    branch(postions['start'], postions['end'])
+                    branch(postions['start'], postions['end'], img_draw)
                     status = 0
                 lost_target_count += 1
         frame_count += 1
